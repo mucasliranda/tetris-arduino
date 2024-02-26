@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <cstdint>
 
 extern const uint32_t darkGrey;
 extern const uint32_t green;

@@ -1,5 +1,6 @@
 #include "colors.h"
 #include <Adafruit_NeoPixel.h>
+#include <cstdint>
 
 const uint32_t darkGrey = Adafruit_NeoPixel::Color(26, 31, 40);
 const uint32_t green = Adafruit_NeoPixel::Color(47, 230, 23);
