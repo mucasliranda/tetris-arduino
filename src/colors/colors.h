@@ -2,17 +2,16 @@
 #include <vector>
 #include <cstdint>
 
-extern const uint32_t darkGrey;
-extern const uint32_t green;
-extern const uint32_t red;
-extern const uint32_t orange;
-extern const uint32_t yellow;
-extern const uint32_t purple;
-extern const uint32_t cyan;
-extern const uint32_t blue;
-extern const uint32_t lightBlue;
-extern const uint32_t darkBlue;
+extern const int black;
+extern const int darkGrey;
+extern const int green;
+extern const int red;
+extern const int orange;
+extern const int yellow;
+extern const int purple;
+extern const int cyan;
+extern const int blue;
+extern const int lightBlue;
+extern const int darkBlue;
 
-std::vector<uint32_t> GetCellColors();
-
-uint32_t GetRandomColor();
+std::vector<int> getCellColors();

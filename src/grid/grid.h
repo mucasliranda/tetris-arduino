@@ -1,15 +1,21 @@
 #pragma once
+#include <cstdint>
 #include <vector>
-#include "map/map.h"
+#include "block/block.h"
+#include <FastLED.h>
+#include "led.cpp"
 
 class Grid {
   public:
     Grid();
-    void Initialize();
-    std::vector<std::vector<Map>> grid;
-    // Map[][] grid;
+    void begin();
+    std::vector<std::vector<int>> grid;
+    void draw();
+    void writeBlock(Block block);
 
   private:
+    std::vector<int> colors;
     int numRows;
     int numCols;
+    Led strip;
 };

@@ -1,33 +1,35 @@
 #include <Arduino.h>
-#include <Adafruit_NeoPixel.h>
+#include "game/game.h"
 #include "grid/grid.h"
 #include "colors/colors.h"
+#include "keyboard/keyboard.h"
+#include "led.cpp"
 
-#define LED_COUNT  256
-#define LED_PIN    13
-#define GAME_SPEED 50
+// #define LED_COUNT  256
+// #define LED_PIN    33
+// #define GAME_SPEED 500
 
-Adafruit_NeoPixel strip(LED_COUNT, LED_PIN, NEO_GRB + NEO_KHZ800);
+// #define LEFT    16
+// #define RIGHT   17
+// #define ROTATE  18
+// #define DOWN    19
 
-Grid grid = Grid();
+// Keyboard keyboard(LEFT, RIGHT, ROTATE, DOWN);
 
 void setup() {
   // put your setup code here, to run once:
-  strip.begin();
   Serial.begin(9600);
+  
+  while(!Serial);
 
-
-
-
-
-  for(int i = 0; i < grid.grid.size(); i++) {
-    for(int j = 0; j < grid.grid[i].size(); j++) {
-      Serial.print("key: ");
-      Serial.print(grid.grid[i][j].key);
-      Serial.print(", color: ");
-      Serial.println(grid.grid[i][j].color);
-    }
-  }
+  // for(int i = 0; i < grid.grid.size(); i++) {
+  //   for(int j = 0; j < grid.grid[i].size(); j++) {
+  //     Serial.print("key: ");
+  //     Serial.print(grid.grid[i][j].key);
+  //     Serial.print(", color: ");
+  //     Serial.println(grid.grid[i][j].color);
+  //   }
+  // }
 
   // for(int i = 0; i < grid.grid.size(); i++) {
   //   Serial.print('[');
@@ -39,45 +41,92 @@ void setup() {
   // }
 }
 
+int i = 0;
+
 void loop() {
+
+  Game game = Game();
+
+  // Grid grid = Grid();
+
+  while(true) {
+    Serial.println("teste");
+
+    // led.setPixel(0, 0xFF0000);
+
+    // led.show();
+
+    game.draw();
+
+
+
+    // grid.draw();
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+    delay(5000);
+  }
+
   // put your main code here, to run repeatedly:
 
+  // keyboard();
 
-  while(false) {
+  // int buttonPressed = keyboard.readInput();
 
-    for(int row = grid.grid.size() - 1; row >= 0; row--) {
-      uint32_t color = GetRandomColor();
-      for(int column = 0; column < grid.grid[row].size(); column++) {
-        strip.setPixelColor(grid.grid[row][column].key, color);
-        strip.show();
-        delay(GAME_SPEED);
-      }
-    }
+  // if (buttonPressed == 1) {
+  //   Serial.println("LEFT button pressed");
+  // } else if (buttonPressed == 2) {
+  //   Serial.println("RIGHT button pressed");
+  // } else if (buttonPressed == 3) {
+  //   Serial.println("ROTATE button pressed");
+  // } else if (buttonPressed == 4) {
+  //   Serial.println("DOWN button pressed");
+  // }
 
+  // delay(50); // just for stability
 
+  // colors();
 
-    // for (int i = 0; i < strip.numPixels(); i++) {
-    //   strip.setPixelColor(i, darkGrey);
-    //   strip.show();
-    //   delay(50);
-    //   strip.setPixelColor(i, strip.Color(0, 0, 0));
-    //   strip.show();
-    // }
-
-    // for (int i = 0; i < strip.numPixels(); i++) {
-    //   strip.setPixelColor(i, purple);
-    //   strip.show();
-    //   delay(50);
-    //   strip.setPixelColor(i, strip.Color(0, 0, 0));
-    //   strip.show();
-    // }
-    
-    // for (int i = 0; i < strip.numPixels(); i++) {
-    //   strip.setPixelColor(i, darkBlue);
-    //   strip.show();
-    //   delay(50);
-    //   strip.setPixelColor(i, strip.Color(0, 0, 0));
-    //   strip.show();
-    // }
-  }
 }
+
+// while (gameNotOver) {
+//   getKeyboardInput
+//   changeScores
+//   draw
+//   wait(gameSpeed)
+// }

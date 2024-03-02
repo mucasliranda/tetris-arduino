@@ -1,23 +1,24 @@
-#include "colors.h"
-#include <Adafruit_NeoPixel.h>
+#include <FastLED.h>
 #include <cstdint>
+#include "colors.h"
 
-const uint32_t darkGrey = Adafruit_NeoPixel::Color(26, 31, 40);
-const uint32_t green = Adafruit_NeoPixel::Color(47, 230, 23);
-const uint32_t red = Adafruit_NeoPixel::Color(232, 18, 18);
-const uint32_t orange = Adafruit_NeoPixel::Color(226, 116, 17);
-const uint32_t yellow = Adafruit_NeoPixel::Color(237, 234, 4);
-const uint32_t purple = Adafruit_NeoPixel::Color(166, 0, 247);
-const uint32_t cyan = Adafruit_NeoPixel::Color(21, 204, 209);
-const uint32_t blue = Adafruit_NeoPixel::Color(13, 64, 216);
-const uint32_t lightBlue = Adafruit_NeoPixel::Color(59, 85, 162);
-const uint32_t darkBlue = Adafruit_NeoPixel::Color(44, 44, 127);
 
-std::vector<uint32_t> GetCellColors() {
-  return {darkGrey, green, red, orange, yellow, purple, cyan, blue};
-}
 
-uint32_t GetRandomColor() {
-  std::vector<uint32_t> colors = GetCellColors();
-  return colors[random(0, colors.size())];
+const int black = 0x000000;
+const int darkGrey = 0x1A1F28;
+const int green = 0x2FE617;
+const int red = 0xE81212;
+const int orange = 0xE27411;
+const int yellow = 0xEDEA04;
+const int purple = 0xA600F7;
+const int cyan = 0x15CCD1;
+const int blue = 0x0D40D8;
+const int lightBlue = 0x3B55A2;
+const int darkBlue = 0x2C2C7F;
+
+std::vector<int> getCellColors() {
+  return {
+    // black, 
+    darkGrey, green, red, orange, yellow, purple, cyan, blue
+  };/*0       1        2     3      4       5       6      7     8 */
 }
