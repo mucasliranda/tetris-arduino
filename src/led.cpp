@@ -17,7 +17,7 @@ class Led {
       this->numCols = numCols;
 
       this->leds = new CRGB[numRows * numCols];
-      FastLED.addLeds<WS2812B, 33, GRB>(leds, numRows * numCols);
+      FastLED.addLeds<WS2812B, LED_PIN, GRB>(leds, numRows * numCols);
       FastLED.setBrightness(8);
     };
     void setPixel(int index, CRGB color) {

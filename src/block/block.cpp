@@ -7,21 +7,8 @@
 Block::Block() {
   rotationState = 0;
   colors = getCellColors();
-  cells[0] = {
-    Position(0,0),
-    Position(0,1),
-    Position(1,0),  
-    Position(1,1)
-  };
-  rowOffset = 0;
-  columnOffset = 0;
-}
-
-void Block::draw(int offsetRow, int offsetColumn) {
-  for(int i = 0; i < cells[id].size(); i++) {
-    // escrever no grid
-  }
-  // strip.show();
+  rowOffset = 32;
+  columnOffset = 3;
 }
 
 void Block::move(int rows, int columns) {
@@ -49,13 +36,10 @@ void Block::rotate() {
   }
 }
 
-void Block::toString() {
-  Serial.print("Block id: ");
-  Serial.println(id);
-  Serial.print("Block rotation state: ");
-  Serial.println(rotationState);
-  Serial.print("Block row offset: ");
-  Serial.println(rowOffset);
-  Serial.print("Block column offset: ");
-  Serial.println(columnOffset);
+void Block::undoRotation() {
+  rotationState--;
+
+  if(rotationState < 0) {
+    rotationState = int(cells.size()) - 1;
+  }
 }

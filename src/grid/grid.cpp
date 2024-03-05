@@ -35,13 +35,9 @@ void Grid::begin() {
     
     tempRow.clear();
   }
-
-  Serial.println("terminou de preencher o grid");
 }
 
 void Grid::draw() {
-  Serial.println("desenhando grid");
-
   for(int row = 0; row < this -> grid.size(); row++) {
     for(int column = 0; column < this -> grid[row].size(); column++) {
       int key = row * this -> grid[row].size() + column;
@@ -52,7 +48,7 @@ void Grid::draw() {
 }
 
 void Grid::writeBlock(Block block) {
-  Serial.println("escrevendo bloco no grid");
+  this -> draw();
   std::vector<Position> positions = block.getCellPositions();
 
   for(Position position : positions) {
@@ -60,4 +56,50 @@ void Grid::writeBlock(Block block) {
     strip.setPixel(key, this -> colors[block.id]);
   }
   this -> strip.show();
+}
+
+bool Grid::isCellEmpty(int row, int column) {
+  return this -> grid[row][column] == 0;
+}
+
+bool Grid::isCellOutside(int row, int column) {
+  return row < 0 || row >= this -> numRows || column < 0 || column >= this -> numCols;
+}
+
+int Grid::clearFullRows() {
+  int completed = 0;
+  for(int row = 0; row < numRows; row++) {
+    if(isRowFull(row)) {
+      clearRow(row);
+      completed++;
+    }
+    else if(completed > 0) {
+      this -> draw();
+      delay(50);
+      moveRowDown(row, completed);
+    }
+  }
+  return completed;
+}
+
+void Grid::moveRowDown(int row, int numRows) {
+  for(int column = 0; column < numCols; column++) {
+    grid[row - numRows][column] = grid[row][column];
+    grid[row][column] = 0;
+  }
+}
+
+bool Grid::isRowFull(int row) {
+  for(int column = 0; column < numCols; column++) {
+    if(grid[row][column] == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+void Grid::clearRow(int row) {
+  for(int column = 0; column < numCols; column++) {
+    grid[row][column] = 0;
+  }
 }

@@ -44,84 +44,15 @@ void setup() {
 int i = 0;
 
 void loop() {
-
   Game game = Game();
-
-  // Grid grid = Grid();
-
+  
   while(true) {
-    Serial.println("teste");
-
-    // led.setPixel(0, 0xFF0000);
-
-    // led.show();
+    game.handleInput();
 
     game.draw();
 
-
-
-    // grid.draw();
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
-    delay(5000);
+    delay(300);
   }
-
-  // put your main code here, to run repeatedly:
-
-  // keyboard();
-
-  // int buttonPressed = keyboard.readInput();
-
-  // if (buttonPressed == 1) {
-  //   Serial.println("LEFT button pressed");
-  // } else if (buttonPressed == 2) {
-  //   Serial.println("RIGHT button pressed");
-  // } else if (buttonPressed == 3) {
-  //   Serial.println("ROTATE button pressed");
-  // } else if (buttonPressed == 4) {
-  //   Serial.println("DOWN button pressed");
-  // }
-
-  // delay(50); // just for stability
-
-  // colors();
-
 }
 
 // while (gameNotOver) {

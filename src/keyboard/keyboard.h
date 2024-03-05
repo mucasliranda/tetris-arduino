@@ -2,9 +2,9 @@
 #include <Arduino.h>
 
 class Keyboard {
-    public:
-    Keyboard(int leftPin, int rightPin, int rotatePin, int downPin);
-    void begin();
+  public:
+    Keyboard();
+    void begin(int leftPin, int rightPin, int rotatePin, int downPin);
     int readInput();
     
   private:

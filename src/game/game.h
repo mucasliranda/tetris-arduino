@@ -1,7 +1,8 @@
 #pragma once
-#include <vector>
-#include "grid/grid.h"
+#include "keyboard/keyboard.h"
 #include "block/block.h"
+#include "grid/grid.h"
+#include <vector>
 
 class Game {
   public:
@@ -10,7 +11,8 @@ class Game {
     bool gameOver;
     int score;
     void draw();
-
+    Keyboard keyboard;
+  
   private:
     Block getRandomBlock();
     std::vector<Block> getAllBlocks();
@@ -18,5 +20,12 @@ class Game {
     Block currentBlock;
     Block nextBlock;
     Grid grid;
-    Keyboard keyboard;
+    bool blockFits();
+    bool isBlockOutside();
+    void lockBlock();
+    void moveBlockLeft();
+    void moveBlockRight();
+    void moveBlockDown();
+    void rotateBlock();
+    void changeToNextBlock();
 };
